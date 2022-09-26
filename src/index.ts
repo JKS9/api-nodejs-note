@@ -2,7 +2,7 @@ import app from './app';
 import connectDB from './config/connect';
 import 'dotenv/config';
 
-const PORT = process.env.PORT;
+const PORT: number | string = process.env.PORT || 9000;
 
 app.listen(PORT, () => {
   console.log('🚀 Listening on ' + PORT + '🚀');

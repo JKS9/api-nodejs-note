@@ -30,7 +30,10 @@ const VerifyBodyChecked: RequestHandler = (
     return res.status(400).json({message: 'Wrong request Body value'});
   }
 
-  const data = {
+  const data: {
+    id: string;
+    checked: boolean;
+  } = {
     id: req.body._id,
     checked: req.body._checked,
   };

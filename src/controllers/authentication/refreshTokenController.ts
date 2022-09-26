@@ -16,7 +16,7 @@ const RefreshTokenController: RequestHandler = async (
 
     const payload = {_id: refreshToken.tokenDetails._id};
 
-    const accessToken = jwt.sign(payload, ACCESS_TOKEN_PRIVATE_KEY, {
+    const accessToken: string = jwt.sign(payload, ACCESS_TOKEN_PRIVATE_KEY, {
       expiresIn: '14m',
     });
 

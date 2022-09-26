@@ -19,7 +19,9 @@ const VerifyBodyRefreshToken: RequestHandler = (
       .status(400)
       .json({error: true, message: error.details[0].message});
 
-  const data = {
+  const data: {
+    refreshToken: string;
+  } = {
     refreshToken: req.body._refreshToken,
   };
 

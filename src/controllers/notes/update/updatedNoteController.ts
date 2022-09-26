@@ -14,11 +14,17 @@ const UpdatedNoteController: RequestHandler = async (
       {returnNewDocument: true}
     );
 
-    await note?.save();
+    if (note) {
+      await note.save();
+
+      return res.status(200).json({
+        message: 'update',
+        note: note,
+      });
+    }
 
     return res.status(200).json({
       message: 'update',
-      note: note,
     });
   } catch (e) {
     console.log('error Update Note', e);

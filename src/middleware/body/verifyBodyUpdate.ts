@@ -25,12 +25,15 @@ const VerifyBodyUpdate: RequestHandler = (
       .status(400)
       .json({error: true, message: error.details[0].message});
 
-  const checkForHexRegExp = new RegExp('^[0-9a-fA-F]{24}$');
+  const checkForHexRegExp: RegExp = new RegExp('^[0-9a-fA-F]{24}$');
   if (!checkForHexRegExp.test(req.body._id)) {
     return res.status(404).json({message: 'Wrong request Body value id'});
   }
 
-  const data = {
+  const data: {
+    id: string;
+    note: string;
+  } = {
     id: req.body._id,
     note: req.body._note,
   };

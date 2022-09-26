@@ -1,12 +1,13 @@
 import {Request, Response, RequestHandler} from 'express';
 import UserToken from '../../models/userToken.model';
+import {IUsersToken} from '../../types/typeSchema';
 
 const LogoutController: RequestHandler = async (
   req: Request,
   res: Response
 ) => {
   try {
-    const userToken = await UserToken.findOne({
+    const userToken: IUsersToken | null = await UserToken.findOne({
       token: req.body.data.refreshToken,
     });
     if (!userToken)

@@ -20,7 +20,7 @@ const CheckedNoteController: RequestHandler = async (
       });
     }
 
-    await checked?.save();
+    await checked.save();
 
     return res.status(200).json({
       message: 'checked',

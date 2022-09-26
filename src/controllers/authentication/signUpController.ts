@@ -11,8 +11,11 @@ const SignUpController: RequestHandler = async (
   res: Response
 ) => {
   try {
-    const salt = await bcrypt.genSalt(salty);
-    const hashPassword = await bcrypt.hash(req.body.data.password, salt);
+    const salt: string = await bcrypt.genSalt(salty);
+    const hashPassword: string = await bcrypt.hash(
+      req.body.data.password,
+      salt
+    );
 
     await new Users({
       email: req.body.data.email,

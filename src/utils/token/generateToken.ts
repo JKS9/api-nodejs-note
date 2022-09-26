@@ -10,10 +10,11 @@ const REFRESH_TOKEN_PRIVATE_KEY = process.env
 const generateTokens = async (user: any) => {
   try {
     const payload = {_id: user._id};
-    const accessToken = jwt.sign(payload, ACCESS_TOKEN_PRIVATE_KEY, {
+
+    const accessToken: string = jwt.sign(payload, ACCESS_TOKEN_PRIVATE_KEY, {
       expiresIn: '14m',
     });
-    const refreshToken = jwt.sign(payload, REFRESH_TOKEN_PRIVATE_KEY, {
+    const refreshToken: string = jwt.sign(payload, REFRESH_TOKEN_PRIVATE_KEY, {
       expiresIn: '30d',
     });
 

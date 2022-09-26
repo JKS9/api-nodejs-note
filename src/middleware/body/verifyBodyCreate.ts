@@ -26,7 +26,11 @@ const VerifyBodyCreate: RequestHandler = (
       .status(400)
       .json({error: true, message: error.details[0].message});
 
-  const data = {
+  const data: {
+    note: string;
+    date: string;
+    checked: boolean;
+  } = {
     note: req.body._note,
     date: req.body._date,
     checked: req.body._checked,

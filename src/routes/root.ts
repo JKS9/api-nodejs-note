@@ -1,4 +1,4 @@
-import express from 'express';
+import express, {Router} from 'express';
 
 /**
  * Controllers
@@ -37,7 +37,7 @@ import VerifyBodyId from '../middleware/body/verifyBodyId';
 import CheckEmailExistMongos from '../middleware/check/checkEmailExistMongos';
 import CheckEmailNotExistMongos from '../middleware/check/checkEmailNotExistMongos';
 
-const root = express.Router();
+const root: Router = express.Router();
 
 root.get('/', StatusController);
 

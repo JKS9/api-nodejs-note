@@ -25,7 +25,9 @@ const VerifyBodyId: RequestHandler = (req: Request, res: Response, next) => {
     return res.status(404).json({message: 'Wrong request Body value id'});
   }
 
-  const data = {
+  const data: {
+    id: string;
+  } = {
     id: req.body._id,
   };
 

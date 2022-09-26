@@ -12,8 +12,8 @@ const AuthenticationAccessToken: RequestHandler = async (
   res: Response,
   next
 ) => {
-  const authHeader = req.headers['authorization'];
-  const token = authHeader && authHeader.split(' ')[1];
+  const authHeader: string | undefined = req.headers['authorization'];
+  const token: string | undefined = authHeader && authHeader.split(' ')[1];
   let users: any;
 
   if (token == null) return res.status(401).json({message: 'Token invalid'});

@@ -14,7 +14,10 @@ const VerifyBodyAuth: RequestHandler = (req: Request, res: Response, next) => {
   const {error} = schema.validate(req.body);
   if (error) return res.status(400).json({message: error.details[0].message});
 
-  const data = {
+  const data: {
+    email: string;
+    password: string;
+  } = {
     email: req.body._email,
     password: req.body._password,
   };
