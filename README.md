@@ -1,10 +1,6 @@
 ## API NODE.JS NOTE
 
----
-
-A nodejs Typescript API with user authentication management, using JWT, mongodb Atlas and express
-
----
+A nodejs Typescript API with user authentication management, using JWT, mongodb Atlas and express.
 
 ## Table of Contents
 
@@ -19,19 +15,19 @@ A nodejs Typescript API with user authentication management, using JWT, mongodb 
 
 ## Install
 
-- clone le projet
+- Clone the project
 
 ```
 $ git clone https://github.com/JKS9/api-nodejs-note.git
 ```
 
-- change la route
+- Point to folder
 
 ```
 $ cd ./api-nodejs-note/
 ```
 
-- installe les dépendences
+- Install dependencies
 
 ```
 $ npm install
