@@ -19,7 +19,6 @@ const AuthenticationAccessToken: RequestHandler = async (
   if (token == null) return res.status(401).json({message: 'Token invalid'});
 
   jwt.verify(token, ACCESS_TOKEN_PRIVATE_KEY, (err, user) => {
-    console.log(user);
     if (err) {
       return res.status(401).json({message: 'Token invalid'});
     }

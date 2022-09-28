@@ -23,8 +23,8 @@ const UpdatedNoteController: RequestHandler = async (
       });
     }
 
-    return res.status(200).json({
-      message: 'update',
+    return res.status(500).json({
+      message: 'Not found note',
     });
   } catch (e) {
     console.log('error Update Note', e);
