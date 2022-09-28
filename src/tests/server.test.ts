@@ -29,11 +29,6 @@ test('GET /', async () => {
     .get('/')
     .expect(200)
     .then((response) => {
-      // Check type and length
-      //expect(Array.isArray(response.body)).toBeTruthy();
-      //expect(response.body.length).toEqual(1);
-
-      // Check data
       expect(response.body.name).toBe('note');
       expect(response.body.version).toBe(0.1);
     });
@@ -252,6 +247,32 @@ describe('Notes', () => {
                 expect(response.body.message).toBe('delete');
               });
             //.catch((err) => console.log('err 7', err));
+          });
+        //.catch((err) => console.log('err 6', err));
+      });
+    //.catch((err) => console.log('err 5', err));
+  });
+
+  test('GET /api/find', async () => {
+    await supertest(App)
+      .post('/auth/login')
+      .set('Accept', 'application/json')
+      .send(dataUser)
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .then(async (res) => {
+        expect(res.body.accessToken);
+        expect(res.body.refreshToken);
+        expect(res.body.message).toBe('Logged in sucessfully');
+
+        await supertest(App)
+          .get('/api/find')
+          .set('Accept', 'application/json')
+          .set('Authorization', `Bearer ${res.body.accessToken}`)
+          .expect('Content-Type', /json/)
+          .expect(200)
+          .then(async (response) => {
+            expect(Array.isArray(response.body.notes)).toBeTruthy();
           });
         //.catch((err) => console.log('err 6', err));
       });
